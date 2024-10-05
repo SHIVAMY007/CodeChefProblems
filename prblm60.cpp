@@ -2,39 +2,28 @@
 #include <vector>
 #include <cmath>
 using namespace std;
-int MinCoinsToPay(int a){
-     if(a%10==0 ){
-       return a/10;
-    }
-    else if(a%5==0 ){
-        
-            return (a-5)/10+1;
-
-        
-    }
-    
-    else{
-        return -1;
-    }
-    
+int MinPlanesToBuy(int a,int b){
+//    float c=a*100;
+   int d=ceil(b/100.0);
+   return (d>a)? (d-a) : 0;
 }
 int main(){
     int n;
     // cout<<"Enter the number of test cases: ";
     cin>>n;
     // cout<<"Enter your test cases: ";
-    vector<vector<int>> arr(n, vector<int>(1)); 
+    vector<vector<int>> arr(n, vector<int>(2)); 
     for (int i = 0; i < n; i++) {
-        for (int j = 0; j < 1; j++) {
+        for (int j = 0; j < 2; j++) {
             cin >> arr[i][j];
         }cout<<endl;
     }
 
     for (int i = 0; i < n; i++) {
         int a = arr[i][0];
-        
-        
-        cout<<MinCoinsToPay(a);
+        int b = arr[i][1];
+        cout<<MinPlanesToBuy(a, b);
+          
         cout<<endl;
     }
           

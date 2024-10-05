@@ -2,39 +2,32 @@
 #include <vector>
 #include <cmath>
 using namespace std;
-int MinCoinsToPay(int a){
-     if(a%10==0 ){
-       return a/10;
-    }
-    else if(a%5==0 ){
-        
-            return (a-5)/10+1;
+int Secondlargest(int a,int b,int c){
+  int x=max(a,b);
+  int y=max(b,c);
+  return min(x,y);
 
-        
-    }
-    
-    else{
-        return -1;
-    }
-    
+   
 }
 int main(){
     int n;
     // cout<<"Enter the number of test cases: ";
     cin>>n;
     // cout<<"Enter your test cases: ";
-    vector<vector<int>> arr(n, vector<int>(1)); 
+    vector<vector<int>> arr(n, vector<int>(3)); 
+
     for (int i = 0; i < n; i++) {
-        for (int j = 0; j < 1; j++) {
+        for (int j = 0; j < 3; j++) {
             cin >> arr[i][j];
         }cout<<endl;
     }
 
     for (int i = 0; i < n; i++) {
         int a = arr[i][0];
+        int b = arr[i][1];
+        int c = arr[i][2];
         
-        
-        cout<<MinCoinsToPay(a);
+       cout<< Secondlargest(a,b,c);
         cout<<endl;
     }
           
